@@ -1,17 +1,22 @@
 require "sinatra"
 require "sinatra/activerecord"
+require "./order"
+
 
 # Configure DB
 # set :database, 'sqlite3:database.db'
 set :database, {:adapter =>'sqlite3', :database=>'orders.db'}
 
-
 # CRUD Roots
-class YourApplication < Sinatra::Base
-  register Sinatra::ActiveRecordExtension
-
+register Sinatra::ActiveRecordExtension
+  
+  get "/" do
+    "OK #{Order.count}"
+  end
+  
   get "/order/:id" do
     id = params[:id]
+    Order.where(id: id).as_json
   end
 
   post "/order/" do
@@ -23,8 +28,4 @@ class YourApplication < Sinatra::Base
   delete "/order/:id" do
   end
 
-  get "/" do
-    "OK"
-  end
-end
 
