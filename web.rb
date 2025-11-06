@@ -2,13 +2,12 @@ require "sinatra"
 require "sinatra/activerecord"
 require "./order"
 
+class Web < Sinatra::Base
+  # Configure DB
+  # set :database, {:adapter =>'sqlite3', :database=>'orders.db'}
 
-# Configure DB
-# set :database, 'sqlite3:database.db'
-set :database, {:adapter =>'sqlite3', :database=>'orders.db'}
-
-# CRUD Roots
-register Sinatra::ActiveRecordExtension
+  # CRUD Roots
+  register Sinatra::ActiveRecordExtension
   
   get "/" do
     "OK #{Order.count}"
@@ -27,5 +26,4 @@ register Sinatra::ActiveRecordExtension
 
   delete "/order/:id" do
   end
-
-
+end

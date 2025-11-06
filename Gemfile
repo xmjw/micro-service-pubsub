@@ -4,5 +4,5 @@ gem 'sinatra'
 gem 'activerecord'
 gem 'sqlite3'
 gem "sinatra-activerecord"
-
+gem 'puma'
 
