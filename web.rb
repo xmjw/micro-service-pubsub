@@ -1,5 +1,6 @@
-require "sinatra"
 require "sinatra/activerecord"
+require "sinatra/json"
+
 require "./order"
 
 class Web < Sinatra::Base
@@ -10,8 +11,8 @@ class Web < Sinatra::Base
   register Sinatra::ActiveRecordExtension
   
   get "/" do
-    "OK #{Order.count}"
-  end
+    json({status: "OK", items: Order.count})
+  end 
   
   get "/order/:id" do
     id = params[:id]

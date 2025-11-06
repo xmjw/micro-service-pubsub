@@ -30,6 +30,7 @@ GEM
     json (2.15.2)
     logger (1.7.0)
     minitest (5.26.0)
+    multi_json (1.17.0)
     mustermann (3.0.4)
       ruby2_keywords (~> 0.0.1)
     nio4r (2.7.5)
@@ -55,6 +56,12 @@ GEM
     sinatra-activerecord (2.0.28)
       activerecord (>= 4.1)
       sinatra (>= 1.0)
+    sinatra-contrib (4.2.1)
+      multi_json (>= 0.0.2)
+      mustermann (~> 3.0)
+      rack-protection (= 4.2.1)
+      sinatra (= 4.2.1)
+      tilt (~> 2.0)
     sqlite3 (2.7.4-aarch64-linux-gnu)
     sqlite3 (2.7.4-aarch64-linux-musl)
     sqlite3 (2.7.4-arm-linux-gnu)
@@ -85,9 +92,11 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  json
   puma
   sinatra
   sinatra-activerecord
+  sinatra-contrib
   sqlite3
 
 BUNDLED WITH
